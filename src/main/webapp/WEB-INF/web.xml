@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <display-name>muke</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <icon>
+    <small-icon>/WEB-INF/images/favicon.jpg</small-icon>
+    <large-icon>/WEB-INF/images/favicon.jpg</large-icon>
+  </icon>
+  
+	<!-- <mime-mapping>
+	　　<extension>ico</extension>
+	　　<mime-type>image/vnd.microsoft.icon</mime-type>
+	</mime-mapping> -->
+  
+	<!-- 环境配置 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/context-config.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+   	<listener>
+       	<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+   	</listener>
+    <!-- 环境配置 -->
+    
+    
+  	
+  	<!-- 字符编码过滤器 -->
+	<filter>
+		<filter-name>Set Character Encoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<async-supported>true</async-supported>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>Set Character Encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 字符编码过滤器 -->
+	
+	<!-- 登录过滤 -->
+    <filter>  
+	    <filter-name>sessionFilter</filter-name>  
+	    <filter-class>com.scch.muke.filter.LoginFilter</filter-class>  
+	</filter>  
+	<filter-mapping>  
+	    <filter-name>sessionFilter</filter-name>  
+	    <url-pattern>/*</url-pattern>  
+	</filter-mapping>
+	<!-- 登录过滤 -->
+	
+	<!-- <filter>
+		<filter-name>DruidWebStatFilter</filter-name>
+		<filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+		<async-supported>true</async-supported>
+		<init-param>
+			<param-name>exclusions</param-name>
+			<param-value>/static/*,*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>
+		</init-param>
+		<init-param>
+			<param-name>principalSessionName</param-name>
+			<param-value>username</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>DruidWebStatFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> -->
+	
+	
+	<!-- 不用框架，自己写servlet拦截请求 -->
+	<!-- <servlet>
+		<servlet-name>muke</servlet-name>
+		<servlet-class>com.scch.muke.MukeController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>muke</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping> -->
+	
+	<!-- springmvc框架拦截器设置 -->
+	<servlet>
+		<servlet-name>muke</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/muke-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+		<async-supported>true</async-supported>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>muke</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<!-- springmvc框架拦截器设置 -->
+	
+	
+	<!-- 错误页面映射 -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/jsp/test.jsp</location>
+    </error-page>
+
+    
+</web-app>

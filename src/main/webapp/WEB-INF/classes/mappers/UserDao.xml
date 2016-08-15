@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scch.muke.dao.UserDao">
+  <!-- 一对一关系 -->
+  <sql id="userFields">
+    id,
+    type,
+    username,
+    password,
+    mobile
+  </sql>
+  
+  
+  <select id="getName" resultType="String">
+    SELECT
+    username
+    FROM
+    user
+    where
+    id = 2
+  </select>
+  
+  <select id="getUser" parameterType="User" resultType="User">
+    select
+    <include refid="userFields" />
+    from user
+    where
+    <if test="id >0">
+      id = #{id}
+    </if>
+    <if test="username >''">
+      and username = #{username}
+    </if>
+    <if test="password > ''">
+      and password = #{password}
+    </if>
+  </select>
+  
+  <select id="getUserByUsername" parameterType="User" resultType="User">
+    select
+    <include refid="userFields" />
+    from user
+    where
+    username = #{username}
+  </select>
+</mapper>
