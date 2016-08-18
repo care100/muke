@@ -8,10 +8,12 @@
   <!-- 一对一关系 -->
   <sql id="userFields">
     id,
-    type,
     username,
     password,
-    mobile
+    name,
+    student_id studentId,
+    major,
+    class classs
   </sql>
   
   
@@ -47,4 +49,23 @@
     where
     username = #{username}
   </select>
+  
+  <!-- 更新用户密码 -->
+  <update id="updateUser" parameterType="User">
+    update user
+    set
+    
+    <if test="password!=null and password!=''">
+      password=#{password},
+    </if>
+    
+    id = #{id}
+    
+    where id = #{id}
+   </update>
+   
+  <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+	insert ignore into user (username,password,name,student_id,major,class) values(#{username},#{password},#{name},#{studentId},#{major},#{classs})
+  </insert>
+  
 </mapper>

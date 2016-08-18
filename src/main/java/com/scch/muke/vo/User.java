@@ -2,10 +2,12 @@ package com.scch.muke.vo;
 
 public class User {
 	private Integer       id;
-	private Integer       type;
 	private String        username;
+	private String        name;
 	private String        password;
-	private String        mobile;
+	private String        studentId;
+	private String        major;
+	private String        classs;
 	
 	public Integer getId() {
 		return id;
@@ -15,20 +17,20 @@ public class User {
 	    this.id = id;
 	}
 
-	public Integer getType() {
-	    return type;
-	}
-
-	public void setType(Integer type) {
-	    this.type = type;
-	}
-
 	public String getUsername() {
 	    return username;
 	}
 
 	public void setUsername(String username) {
 	    this.username = username;
+	}
+	
+	public String getName() {
+	    return name;
+	}
+
+	public void setName(String name) {
+	    this.name = name;
 	}
 
 	public String getPassword() {
@@ -39,11 +41,27 @@ public class User {
 	    this.password = password;
 	}
 
-	public String getMobile() {
-	    return mobile;
+	public String getStudentId() {
+	    return studentId;
 	}
 
-	public void setMobile(String mobile) {
-	    this.mobile = mobile;
+	public void setStudentId(String studentId) {
+	    this.studentId = studentId;
+	}
+	
+	public String getMajor() {
+	    return major;
+	}
+
+	public void setMajor(String major) {
+	    this.major = major;
+	}
+	
+	public String getClasss() {
+	    return classs;
+	}
+
+	public void setClasss(String classs) {
+	    this.classs = classs;
 	}
 }

@@ -28,12 +28,12 @@
 					<p class="pull-left color-darkgrey">学习进度</p>
 					<p class="pull-right color-darkgrey">章节测试</p>
 				</div>
-				<c:forEach var="chapter" items="${chapters }">
+				<c:forEach var="chapter" items="${chapters }" varStatus="chapIndex">
 					<div class="one-chap">
 						<span class="icon-chap <c:if test="${chapter.study gt 0 }">icon-half</c:if><c:if test="${chapter.study eq 0 }">icon-no</c:if><c:if test="${chapter.study eq null }">icon-no</c:if><c:if test="${chapter.study eq -1 }">icon-had</c:if>"></span>
-						<a href="${chapter.studyLink }" class="chap-name j-study-chap" target="_blank">${chapter.chapName }</a>
-						<p class="study-status"><c:if test="${chapter.study gt 0 }">进行中</c:if><c:if test="${chapter.study eq 0 }">未开始</c:if><c:if test="${chapter.study eq -1 }">已完成</c:if></p>
-						<p class="test-status"><c:if test="${chapter.exam eq 0 }">已通过</c:if><c:if test="${chapter.exam eq null }"><a href="javascript:;" class="j-start-exam">未开始</a></c:if><c:if test="${chapter.exam eq -1 }"><a href="javascript:;" class="j-start-exam">未通过</a></c:if></p>
+						<a href="/study?chapIndex=${chapIndex.index }" class="chap-name j-study-chap" target="_blank">${chapter.chapName }</a>
+						<p class="study-status"><c:if test="${chapter.study gt 0 }">进行中</c:if><c:if test="${chapter.study eq null }">未开始</c:if><c:if test="${chapter.study eq -1 }">已完成</c:if></p>
+						<p class="test-status"><c:if test="${chapter.exam eq 0 }">已通过</c:if><c:if test="${chapter.exam eq null }"><a href="/exam?chapIndex=${chapIndex.index }" class="j-start-exam">未开始</a></c:if><c:if test="${chapter.exam eq -1 }"><a href="/exam?chapIndex=${chapIndex.index }" class="j-start-exam">未通过</a></c:if></p>
 					</div>
 				</c:forEach>
 				<%-- <div class="one-chap">
@@ -77,21 +77,41 @@
 				$('body').css('overflow','hidden');
 				return false;
 			});
-			/* $('.modal').click(function(e){
-				var targetE = e.target;
-				if((this) == targetE){
-					closeStudy();
-				}
-			}); */
 			
 			//测试
 			$('.j-start-exam').click(function(){
 				if($(this).closest('.one-chap').children('.icon-chap').hasClass('icon-had')){
-					alert("测试开始！");
+					$('.modal-bg').show();
+					$('.modal').show();
+					$('iframe').attr('src',$(this).attr('href'));
+					$('body').css('overflow','hidden');
+					return false;
 				}else{
 					alert("请先完成本章学习！");
+					return false;
 				}
 			});
+			
+			//未登录时读取本地的学习、测试结果缓存
+			if(!isLogin()){
+				var oneChaps = $('.one-chap');
+				for(var i = 0;i < oneChaps.length;i++){
+					var chap = localStorage.getItem('chap'+i);
+					if(chap == 1){
+						oneChaps.eq(i).children('.icon-chap').removeClass('icon-no').addClass('icon-half');
+						oneChaps.eq(i).children('.study-status').text('进行中');
+					}else if(chap == -1){
+						oneChaps.eq(i).children('.icon-chap').removeClass('icon-no').addClass('icon-had');
+						oneChaps.eq(i).children('.study-status').text('已完成');
+					}
+					var exam = localStorage.getItem('exam'+i);
+					if(exam == -1){
+						oneChaps.eq(i).children('.test-status').children('a').text('未通过');
+					}else if(exam == 0){
+						oneChaps.eq(i).children('.test-status').text('已通过');
+					}
+				}
+			}
 		});
 	</script>
 </body>

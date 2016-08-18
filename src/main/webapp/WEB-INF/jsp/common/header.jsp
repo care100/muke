@@ -8,7 +8,10 @@
 		</div>
 		<div class="login-sta pull-right clearfix">
 			<c:if test="${sessionScope.username ne null }">
-				<p class="pull-left">您好,${sessionScope.username}</p>
+				<p class="pull-left user-show">
+					您好,${sessionScope.name}
+					<a href="/changePass" target="_blank" class="change-pass">修改密码</a>
+				</p>
 				<a href="/logout" class="pull-left">退出</a>
 			</c:if>
   			<c:if test="${sessionScope.username eq null }">

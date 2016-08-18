@@ -12,12 +12,15 @@ public class Sixiu {
 	private Integer        chap6;
 	private Integer        chap7;
 	private Integer        chap8;
+	private Integer        xulunExam;
 	private Integer        chap1Exam;
 	private Integer        chap2Exam;
 	private Integer        chap3Exam;
 	private Integer        chap4Exam;
 	private Integer        chap5Exam;
 	private Integer        chap6Exam;
+	private Integer        chap7Exam;
+	private Integer        chap8Exam;
 	
 	public Integer getId() {
 		return id;
@@ -107,6 +110,14 @@ public class Sixiu {
 	    this.chap8 = chap8;
 	}
 	
+	public Integer getXulunExam() {
+	    return xulunExam;
+	}
+
+	public void setXulunExam(Integer xulunExam) {
+	    this.xulunExam = xulunExam;
+	}
+	
 	public Integer getChap1Exam() {
 	    return chap1Exam;
 	}
@@ -153,5 +164,21 @@ public class Sixiu {
 
 	public void setChap6Exam(Integer chap6Exam) {
 	    this.chap6Exam = chap6Exam;
+	}
+	
+	public Integer getChap7Exam() {
+	    return chap7Exam;
+	}
+
+	public void setChap7Exam(Integer chap7Exam) {
+	    this.chap7Exam = chap7Exam;
+	}
+	
+	public Integer getChap8Exam() {
+	    return chap8Exam;
+	}
+
+	public void setChap8Exam(Integer chap8Exam) {
+	    this.chap8Exam = chap8Exam;
 	}
 }

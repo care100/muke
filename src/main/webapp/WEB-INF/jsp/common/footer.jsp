@@ -5,6 +5,11 @@
 </div>
 <script src="/static/js/jquery-1.12.3.min.js"></script>
 <script>
+	//是否登录
+	function isLogin(){
+		return document.cookie.substr(document.cookie.indexOf("login=")+6,1) == 0 ? false : true;
+	}
+
 	$(function(){
 		/* $.ajax({
 			type: "post",

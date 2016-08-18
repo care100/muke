@@ -11,5 +11,9 @@ public interface UserDao extends BaseDao {
 	
 	public User getUser(User user);
 	public User getUserByUsername(String username);
+
+	public void updateUser(User user);
+
+	public void insertUser(User user);
 	
 }

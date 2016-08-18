@@ -18,12 +18,15 @@
     chap6,
     chap7,
     chap8,
+    xulun_exam xulunExam,
     chap1_exam chap1Exam,
     chap2_exam chap2Exam,
     chap3_exam chap3Exam,
     chap4_exam chap4Exam,
     chap5_exam chap5Exam,
-    chap6_exam chap6Exam
+    chap6_exam chap6Exam,
+    chap7_exam chap7Exam,
+    chap8_exam chap8Exam
   </sql>
   
 
@@ -44,9 +47,64 @@
     <if test="xulun!=null and xulun!=''">
       xulun=#{xulun},
     </if>
+    <if test="xulunExam!=null">
+      xulun_exam=#{xulunExam},
+    </if>
     
     <if test="chap1!=null and chap1!=''">
       chap1=#{chap1},
+    </if>
+    <if test="chap1Exam!=null">
+      chap1_exam=#{chap1Exam},
+    </if>
+    
+    <if test="chap2!=null and chap2!=''">
+      chap2=#{chap2},
+    </if>
+    <if test="chap2Exam!=null">
+      chap2_exam=#{chap2Exam},
+    </if>
+    
+    <if test="chap3!=null and chap3!=''">
+      chap3=#{chap3},
+    </if>
+    <if test="chap3Exam!=null">
+      chap3_exam=#{chap3Exam},
+    </if>
+    
+    <if test="chap4!=null and chap4!=''">
+      chap4=#{chap4},
+    </if>
+    <if test="chap4Exam!=null">
+      chap4_exam=#{chap4Exam},
+    </if>
+    
+    <if test="chap5!=null and chap5!=''">
+      chap5=#{chap5},
+    </if>
+    <if test="chap5Exam!=null">
+      chap5_exam=#{chap5Exam},
+    </if>
+    
+    <if test="chap6!=null and chap6!=''">
+      chap6=#{chap6},
+    </if>
+    <if test="chap6Exam!=null">
+      chap6_exam=#{chapExam6},
+    </if>
+    
+    <if test="chap7!=null and chap7!=''">
+      chap7=#{chap7},
+    </if>
+    <if test="chap7Exam!=null">
+      chap7_exam=#{chap7Exam},
+    </if>
+    
+    <if test="chap8!=null and chap8!=''">
+      chap8=#{chap8},
+    </if>
+    <if test="chap8Exam!=null">
+      chap8_exam=#{chap8Exam},
     </if>
     
     user_id = #{userId}

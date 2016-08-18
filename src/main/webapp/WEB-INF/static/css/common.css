@@ -60,7 +60,8 @@ select{
 .ft-20{font-size:20px;}
 .ft-22{font-size:22px;}
 .ft-24{font-size:24px;}
-.ft-28{font-size: 28px;}
+.ft-28{font-size:28px;}
+.ft-30{font-size: 30px;}
 .ft-40{font-size:40px;}
 /* 字体family */
 .ft-arial{font-family: Arial;}
@@ -139,10 +140,13 @@ body{height: 100%;}
 .s-title{line-height: 26px;}
 .login-sta{padding: 42px 0;line-height: 16px;}
 .login-sta a{display: block;color: #fff;margin-left: 90px;}
+.login-sta .user-show{position: relative;}
+.login-sta .user-show .change-pass{display: none;position: absolute;top: 15px;right: 0;width: 100%;padding-top: 20px;}
+.login-sta .user-show:hover .change-pass{display: block;}
 /* modal */
 .modal-bg{display: none;position: fixed;top: 0;right: 0;bottom: 0;left: 0;background-color: rgba(0,0,0,0.4);filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#66000000,endcolorstr=#66000000);z-index: 1040;}
 .modal{display: none;position: fixed;top: 0;right: 0;bottom: 0;left: 0;z-index: 1050;}
-.modal-con{width: 800px;height: 600px;margin: 10px auto;background-color: #fff;}
+.modal-con{width: 800px;height: 600px;margin: 10px auto;background-color: #fff;position: relative;}
 /* iframe */
 iframe{width: 800px;height: 600px;border: 0;overflow: hidden;}
 /* video */
@@ -151,3 +155,18 @@ iframe{width: 800px;height: 600px;border: 0;overflow: hidden;}
 .main object embed{width: 100%;height: 600px;}
 .study-main{width: 800px;height: 600px;position: relative;}
 .close-btn{width: 34px;height: 34px;text-align: center;border: 1px solid #ccc;font-size: 24px;line-height: 34px;border-radius: 17px;background-color: #fff;position: absolute;right: 20px;top: 15px;color: #aaa;cursor: pointer;}
+/* exam page */
+.exam-bg{width: 100%;height: 100%;}
+.exam-box{position: absolute;width: 100%;height: 100%;top: 0;left: 0;}
+.exam-head{height: 91px;border-bottom: 1px solid #e6e8ea;background: url(/static/images/logo.png) no-repeat 15px 18px;}
+.exam-chap-title{color: #005e5e;text-align: center;line-height: 90px;position: relative;left: 80px;}
+.exam-msg{margin: 10px 50px 0;line-height: 40px;border-bottom: 1px solid #007266;color: #007266;padding-left: 28px;background: url(/static/images/hua.png) no-repeat left center;}
+.one-topic{display: none;font-family: "Microsoft YaHei",微软雅黑,"Microsoft JhengHei";font-size: 22px;color: #007266;margin: 0 50px;}
+.topic-now{display: block;}
+.quextion-msg{line-height: 24px;padding: 10px 0;}
+.option-item{line-height: 24px;padding: 7px 0 5px 52px;background: url(/static/images/kuang.png) no-repeat left center;cursor: pointer;}
+.option-active{background-image: url(/static/images/kuang-h.png);}
+.foot-btn{width: 100%;padding: 20px 0;background-color: #f7f9fb;position: absolute;bottom: 0;}
+.next-topic,.complete-exam{display: block;width: 102px;height: 52px;line-height: 50px;text-align: center;font-size: 20px;color: #666;margin: 0 auto;border: 1px solid #e8ebee;border-radius: 3px;cursor: pointer;}
+
+
