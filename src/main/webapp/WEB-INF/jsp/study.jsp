@@ -6,6 +6,8 @@
 <head>
 	<meta charset="UTF-8">
     <title>绪论</title>
+    <link rel="icon" href="/static/images/favicon.ico">
+	<link rel="shortcut icon" href="/static/images/favicon.ico">
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">

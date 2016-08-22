@@ -6,6 +6,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>测试</title>
+	<link rel="icon" href="/static/images/favicon.ico">
+	<link rel="shortcut icon" href="/static/images/favicon.ico">
 	<link href="/static/css/common.css" rel="stylesheet">
 	<style>
 		.complete-exam{display: none;}

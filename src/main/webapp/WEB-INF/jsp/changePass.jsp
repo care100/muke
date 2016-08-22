@@ -6,6 +6,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>修改密码</title>
+	<link rel="icon" href="/static/images/favicon.ico">
+	<link rel="shortcut icon" href="/static/images/favicon.ico">
 	<link href="/static/css/common.css" rel="stylesheet">
 	<style>
 		form{display: block;width: 600px;margin: 0 auto;padding: 50px 30px 0;}

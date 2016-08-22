@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>tt.html</title>
-	
+	<link rel="icon" href="/static/images/favicon.ico">
+	<link rel="shortcut icon" href="/static/images/favicon.ico">
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="this is my page">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">

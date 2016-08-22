@@ -6,6 +6,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>首页</title>
+	<link rel="icon" href="/static/images/favicon.ico">
+	<link rel="shortcut icon" href="/static/images/favicon.ico">
 	<link href="/static/css/common.css" rel="stylesheet">
 	<link href="/static/css/index.css" rel="stylesheet">
 </head>
