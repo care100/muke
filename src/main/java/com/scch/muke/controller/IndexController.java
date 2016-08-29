@@ -286,6 +286,7 @@ public class IndexController {
 	public ModelAndView xulun(HttpServletRequest request, HttpServletResponse response, HttpSession httpSession){
 		Integer chapIndex = Integer.parseInt(request.getParameter("chapIndex").trim());
 		Integer userId = (Integer) httpSession.getAttribute("userId");
+		String flash = "chap" + chapIndex.toString();
 		if(userId == null){
 			
 		}else{
@@ -340,6 +341,7 @@ public class IndexController {
 			userService.updateSixiu(sixiu);
 		}
 		ModelAndView mv = new ModelAndView("study");
+		mv.addObject("flash", flash);
 		return mv;
 	}
 	
@@ -534,6 +536,32 @@ public class IndexController {
 					return mv;
 				}
 			}else{
+				String searchKey = request.getParameter("student");
+				if(searchKey == null){
+					List<Map<String,Object>> status = userService.getGrade();
+					mv.addObject("status", status);
+				}else{
+					byte source [] = searchKey.getBytes("iso8859-1");
+					searchKey = new String (source,"UTF-8");
+					searchKey = searchKey.trim();
+					if(searchKey.length() < 1){
+						List<Map<String,Object>> status = userService.getGrade();
+						mv.addObject("status", status);
+					}else{
+						String searchMsg = "";
+						try{
+							List<Map<String,Object>> status = userService.searchGrade(searchKey);
+							mv.addObject("status", status);
+							if(status.size() == 0){
+								searchMsg = "学员不存在！";
+							}
+						}catch(Exception e){
+							searchMsg = "学员不存在！";
+						}
+						mv.addObject("searchKey", searchKey);
+						mv.addObject("searchMsg", searchMsg);
+					}
+				}
 				return mv;
 			}
 		}else{

@@ -115,5 +115,28 @@
   <insert id="insertSixiu" parameterType="Sixiu" useGeneratedKeys="true" keyProperty="id">
       insert into sixiu(user_id) values(#{userId})
   </insert>
+  
+  <select id="getGrade" resultType="Map">
+  	SELECT 
+  	* 
+  	FROM `user` 
+  	INNER JOIN 
+  	sixiu 
+  	ON `user`.id = sixiu.user_id 
+  	WHERE `user`.class != '0' 
+  	<!-- ORDER BY `user`.id DESC -->
+  </select>
+  
+  <select id="searchGrade"  resultType="Map">
+  	SELECT 
+  	* 
+	FROM `user` 
+  	INNER JOIN 
+  	sixiu 
+  	ON `user`.id = sixiu.user_id 
+  	WHERE `user`.class != '0' 
+	and (`name` = #{searchKey} OR student_id = #{searchKey}) 
+  	<!-- ORDER BY `user`.id DESC -->
+  </select>
 
 </mapper>

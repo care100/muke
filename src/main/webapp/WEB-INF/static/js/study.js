@@ -1,6 +1,9 @@
 function completeAndClose(){
 	window.parent.closeStudy();
 }
+function kaifu(){
+	window.open('http://www.dxsbb.com/news/243.html');
+}
 var chapter = window.location.href.split('?')[1].split('=')[1];
 function completeChap(){
 	

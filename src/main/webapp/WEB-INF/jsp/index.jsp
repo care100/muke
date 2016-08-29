@@ -19,8 +19,11 @@
 			<div class="book">
 				<div class="book-msg pull-left">
 					<h1 class="ft-28 color-33">《思想道德修养与法律基础》</h1>
-					<p class="color-gray">《思想道德修养与法律基础》教材于2006年出版后，为了充分体现中国特色社会主义[1]  理论成果和实践经验，课题组分别于2007年7月、2008年1月、2009年5月和2010年5月对教材进行了修订。2013年5月至7月，为了推动党的十八大[2]  精神进教材、进课堂、进头脑，体现上次修订以来中国特色社会主义理论和实践的创新成果，体现思想政治教育学科的新进展，中宣部、教育部组织课题组在广泛调研的基础上，再次对教材进行了修订。马克思主义理论研究和建设工程咨询委员会对教材修订稿进行了审议指导。</p>
-					<a href="" class="color-33 pull-right ft-18">查看更多&gt;&gt;</a>
+					<div class="msg-box">
+						<p class="class-msg color-gray">本课程是全院各专业三年制高职学生必修的一门公共基础课，旨在对学生进行思想品德教育和法制教育，帮助学生树立正确的世界观、人生观、道德观和法制观，塑造高尚人格，选择正确的行为，走好人生道路，成为有理想、有道德、有文化、有纪律的社会主义建设者。</p>
+						<p class="class-msg color-gray">本课程从当代大学生面临和关心的实际问题出发，以理想信念教育为核心，爱国主义教育为重点，思想道德建设为基础，综合素质培养为宗旨进行该课程教学。通过理论学习和实践体验，帮助大学生形成崇高的理想信念，弘扬伟大的爱国主义精神，确立正确的人生观和价值观，塑造健康心理，牢固树立社会主义荣辱观，培养良好的思想道德素质和法律素质，进一步提高分辨是非、善恶、美丑和加强自我修养能力，为逐渐成为德智体美全面发展的社会主义事业的合格建设者和接班人，打下扎实的思想道德和法律基础。实践活动是重要的教学环节，有助于激发学习兴趣，增强学生对理论的感性认识，促使知识向素质转化</p>
+					</div>
+					<a class="show-more color-33 pull-right ft-18">查看更多&gt;&gt;</a>
 				</div>
 				<img src="/static/images/book-cover.jpg" class="book-cover pull-right">
 			</div>
@@ -35,7 +38,21 @@
 						<span class="icon-chap <c:if test="${chapter.study gt 0 }">icon-half</c:if><c:if test="${chapter.study eq 0 }">icon-no</c:if><c:if test="${chapter.study eq null }">icon-no</c:if><c:if test="${chapter.study eq -1 }">icon-had</c:if>"></span>
 						<a href="/study?chapIndex=${chapIndex.index }" class="chap-name j-study-chap" target="_blank">${chapter.chapName }</a>
 						<p class="study-status"><c:if test="${chapter.study gt 0 }">进行中</c:if><c:if test="${chapter.study eq null }">未开始</c:if><c:if test="${chapter.study eq -1 }">已完成</c:if></p>
-						<p class="test-status"><c:if test="${chapter.exam eq 0 }">已通过</c:if><c:if test="${chapter.exam eq null }"><a href="/exam?chapIndex=${chapIndex.index }" class="j-start-exam">未开始</a></c:if><c:if test="${chapter.exam eq -1 }"><a href="/exam?chapIndex=${chapIndex.index }" class="j-start-exam">未通过</a></c:if></p>
+						<p class="test-status">
+							<c:if test="${chapter.exam eq 0 }">已通过</c:if>
+							<c:if test="${chapter.exam eq null }">
+								<a href="/exam?chapIndex=${chapIndex.index }" class="j-start-exam">
+									<span class="exam-status-text">未开始</span>
+									<span class="exam-hover">开始测试</span>
+								</a>
+							</c:if>
+							<c:if test="${chapter.exam eq -1 }">
+								<a href="/exam?chapIndex=${chapIndex.index }" class="j-start-exam">
+									<span class="exam-status-text">未通过</span>
+									<span class="exam-hover">重新测试</span>
+								</a>
+							</c:if>
+						</p>
 					</div>
 				</c:forEach>
 				<%-- <div class="one-chap">
@@ -70,6 +87,13 @@
 			}else{
 				$('.modal-con').css({'margin':((screenH-600)/2)+'px auto'});
 			}
+			
+			//展示更多
+			$('.show-more').click(function(){
+				$(this).remove();
+				$('.msg-box').css({'overflow':'auto','height':'auto','padding-bottom':'25px'});
+				$('.book').css('height','auto');
+			});
 			
 			//学习
 			$('.j-study-chap').click(function(){
@@ -108,7 +132,8 @@
 					}
 					var exam = localStorage.getItem('exam'+i);
 					if(exam == -1){
-						oneChaps.eq(i).children('.test-status').children('a').text('未通过');
+						var con = $('<span class="exam-status-text">未通过</span><span class="exam-hover">重新测试</span>');
+						oneChaps.eq(i).children('.test-status').children('a').html(con);
 					}else if(exam == 0){
 						oneChaps.eq(i).children('.test-status').text('已通过');
 					}

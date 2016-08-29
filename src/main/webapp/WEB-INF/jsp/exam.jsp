@@ -124,13 +124,14 @@
 							console.log("wrong");
 							$('.topic-now').append('<p class="answer-wrong">回答错误！答案：'+$('.topic-now').attr('answer')+'</p>');
 						}
+						
 					}else{
 						if($('.topic-now').attr('answer') == $('.topic-now').find('.option-active').attr('code')){
 							console.log("right");
 							$('.topic-now').append('<p class="answer-right">回答正确！</p>');
 						}else{
 							var rightA = $('.topic-now').attr('answer');
-							if(right == 0){
+							if(rightA == 0){
 								rightA = "错误";
 							}else if(rightA == 1){
 								rightA = "正确";
@@ -139,6 +140,7 @@
 							$('.topic-now').append('<p class="answer-wrong">回答错误！答案：'+rightA+'</p>');
 						}
 					}
+					$('.topic-now').find('.j-option-item').unbind();
 					$('.j-topic-sub').hide();
 					if($('.one-topic').index($('.topic-now')) == $('.one-topic').length-1){
 						$('.complete-exam').show();
@@ -229,10 +231,12 @@
 					}else{
 						if(result == 0){
 							alert("恭喜您，通过测试！");
+							localStorage.setItem("exam"+chapter,0);
 						}else{
 							alert("很遗憾，您未通过测试，再接再厉吧！");
+							localStorage.setItem("exam"+chapter,-1);
 						}
-						localStorage.setItem("exam"+chapter,-1);
+						
 						window.parent.closeStudy();
 					}
 				}

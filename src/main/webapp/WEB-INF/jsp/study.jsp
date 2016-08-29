@@ -17,14 +17,18 @@
 </head>
 <body>
 	<div class="study-main">
+		<div class="loading-box">
+			<img src="/static/images/loading.gif" class="loading-img">
+		</div>
+		
 		<p class="close-btn">×</p>
 		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="800" height="600" id="sixiu" align="middle">
 			<param name="allowScriptAccess" value="sameDomain" />
 			<param name="allowFullScreen" value="false" />
-			<param name="movie" value="/static/flash/xulun.swf?3" />
+			<param name="movie" value="/static/flash/${flash }.swf" />
 			<param name="quality" value="high" />
 			<param name="bgcolor" value="#ffffff" />
-			<embed src="/static/flash/xulun.swf?3" quality="high" bgcolor="#ffffff" width="800" height="600" name="sixiu" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cn" />
+			<embed src="/static/flash/${flash }.swf" quality="high" bgcolor="#ffffff" width="800" height="600" name="sixiu" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cn" />
 		</object>
 	</div>
 	
@@ -34,7 +38,9 @@
 	
 	<script src="/static/js/study.js?1"></script>
 	<script>
-		
+		window.onload = function(){
+			$('.loading-box').hide();
+		};
 	</script>
 </body>
 </html>

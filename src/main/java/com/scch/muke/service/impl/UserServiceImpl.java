@@ -1,6 +1,8 @@
 package com.scch.muke.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -67,5 +69,18 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void insertUser(User user){
 		userDao.insertUser(user);
+		userDao.insertUserSisiu(user);
 	}
+	
+	@Override
+	public List<Map<String,Object>> getGrade(){
+		List<Map<String,Object>> status = sixiuDao.getGrade();
+		return status;
+	};
+	
+	@Override
+	public List<Map<String,Object>> searchGrade(String searchKey){
+		List<Map<String,Object>> status = sixiuDao.searchGrade(searchKey);
+		return status;
+	};
 }

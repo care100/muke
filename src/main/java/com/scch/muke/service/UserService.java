@@ -1,6 +1,7 @@
 package com.scch.muke.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.scch.muke.vo.Sixiu;
 import com.scch.muke.vo.User;
@@ -17,4 +18,6 @@ public interface UserService {
 	List<Exam> getExam(Integer chap, Integer type);
 	void updateUser(User user);
 	void insertUser(User user);
+	List<Map<String,Object>> getGrade();
+	List<Map<String, Object>> searchGrade(String searchKey);
 }

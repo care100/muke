@@ -2,11 +2,14 @@
 body{background-color: #fafafa;}
 /* main */
 .main-con{width: 1202px;margin: 0 auto;padding-bottom: 19px;}
-.book{height: 302px;border: 1px solid #e4e4e4;padding: 0 90px 0 19px;background-color: #fff;margin: 18px 0;}
+.book{height: 302px;border: 1px solid #e4e4e4;overflow: hidden;padding: 0 90px 0 19px;background-color: #fff;margin: 18px 0;}
 .book-msg{width: 682px;padding-top: 28px;}
 .book-msg h1{line-height: 54px;}
+.msg-box{height: 145px;overflow: hidden;}
 .book-msg p{line-height: 28px}
+.class-msg{text-indent: 30px;}
 .book-msg a{display: block;line-height: 18px;margin-top: 16px;}
+.show-more{cursor: pointer;}
 .chapter{border: 1px solid #e4e4e4;background-color: #fff;}
 .chap-title{height: 61px;line-height: 60px;border-bottom: 1px solid #d3d3d3;padding-left: 60px;padding-right: 10px;}
 .chap-title-text{width: 700px;}
@@ -16,8 +19,14 @@ body{background-color: #fafafa;}
 .chap-name{display: block;width: 660px;color: #333;float: left;padding-left: 19px;border-left: 1px solid #d3d3d3;margin-left: 80px;}
 .study-status{width: 64px;text-align: center;float: left;margin-right: 10px;color: #333;}
 .test-status{float: right;margin-right: 10px;color: #333;}
+.test-status a{display: block;}
 .icon-no{background-image: url("../images/chap-no.png");}
 .icon-half{background-image: url("../images/chap-half.png");}
 .icon-had{background-image: url("../images/chap-had.png");}
+
+.exam-status-text{}
+.exam-hover{display: none;line-height: 30px;color: #fff;background-color: #28a0dc;padding: 0 5px;text-align: center;margin: 12px 0;border-radius: 5px;}
+.j-start-exam:hover .exam-status-text{display: none;}
+.j-start-exam:hover .exam-hover{display: block;}
 /* footer */
 .footer{}

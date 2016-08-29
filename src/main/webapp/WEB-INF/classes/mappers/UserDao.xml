@@ -68,4 +68,8 @@
 	insert ignore into user (username,password,name,student_id,major,class) values(#{username},#{password},#{name},#{studentId},#{major},#{classs})
   </insert>
   
+  <insert id="insertUserSisiu" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+  	insert ignore into sixiu(user_id) select id FROM user where student_id = #{studentId}
+  </insert>
+  
 </mapper>

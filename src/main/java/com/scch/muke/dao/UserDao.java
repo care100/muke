@@ -15,5 +15,6 @@ public interface UserDao extends BaseDao {
 	public void updateUser(User user);
 
 	public void insertUser(User user);
+	public void insertUserSisiu(User user);
 	
 }
